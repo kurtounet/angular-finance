@@ -1,12 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
+import { Itransaction } from '../shared/models/transaction.model';
+import { BaseChartDirective } from 'ng2-charts';
+import { ChartData } from 'chart.js';
 
 @Component({
   selector: 'app-graphic',
   standalone: true,
-  imports: [],
+  imports: [BaseChartDirective],
   templateUrl: './graphic.component.html',
   styleUrl: './graphic.component.css'
 })
 export class GraphicComponent {
+  @Input() transactions: Itransaction[] = [];
+
+  data: ChartData<'bar'> = {
+    labels: [],
+    datasets: [{
+      data: []
+    }]
+  };
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['transactions']) {
+      this.updateChartData();
+    }
+  }
+
+  updateChartData() {
+    this.data.labels = this.transactions.map(transaction => transaction.title);
+    this.data.datasets[0].data = this.transactions.map(transaction => transaction.amount);
+  }
 
 }

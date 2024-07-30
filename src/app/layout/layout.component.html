@@ -1,4 +1,4 @@
-<section class="container">
+<section class="container d-flex flex-column justify-item-center">
   <app-filter-bar (selectedCategory)="transactionSelectedCategory($event)"></app-filter-bar>
   <h1>Transaction</h1>
   <div class="amount">
@@ -6,36 +6,30 @@
     <span class="amounTotal">Total: 100€</span>
     <span class="amounTotal">Total: 100€</span>
   </div>
-  <ul class="row w-100" *ngFor="let transaction of transactionsfilterCollection">
-    <li class="col date">{{transaction.date | date:'dd mm y'}}</li>
-    <li class="col">{{transaction.category}}</li>
-    <li class="col">{{transaction.title}}</li>
-    <li class="col">{{transaction.amount}} € </li>
-    <li class="col type">{{transaction.type | titlecase}}</li>
-    <li class="col type"><button (click)="editeTransaction(transaction.id)"></button></li>
-    <li class="col type"><button (click)="deleteTransaction(transaction.id)"></button></li>
-  </ul>
-</section>
+  <!-- <app-add-transaction (addTransaction)="addTransaction($event)"></app-add-transaction> -->
+  <app-graphic [transactions]="transactionsfilterCollection"></app-graphic>
+  <table class="w-100">
+    <tr>
+      <th>Date</th>
+      <th>catégorie</th>
+      <th>libellé</th>
+      <th>Montant</th>
+      <th>Type</th>
+    </tr>
+    @for (transaction of transactionsfilterCollection; track transaction.id) {
+    <tr>
+      <td class="border-1 text-center">{{transaction.date | date:'dd mm y'}}</td>
+      <td class="border-1 text-center">{{transaction.category}}</td>
+      <td class="border-1 text-center">{{transaction.title}}</td>
+      <td class="border-1 text-center">{{transaction.amount}}</td>
+      <td class="border-1 text-center">{{transaction.type}}</td>
+      <td class="border-1 text-center">
+        <button class="btn btn-success m-1" (click)="editeTransaction(transaction.id)">Modifier</button>
+        <button class="btn btn-danger m-1" (click)="deleteTransaction(transaction.id)">Supprimer</button>
+      </td>
+    </tr>
+    }
+  </table>
 
-<!-- <table border="1">
-  <tr>
-    <th>Date</th>
-    <th>category</th>
-    <th>Header 3</th>
-  </tr>
-  <tr>
-    <td>Row 1, Cell 1</td>
-    <td>Row 1, Cell 2</td>
-    <td>Row 1, Cell 3</td>
-  </tr>
-  <tr>
-    <td>Row 2, Cell 1</td>
-    <td>Row 2, Cell 2</td>
-    <td>Row 2, Cell 3</td>
-  </tr>
-  <tr>
-    <td>Row 3, Cell 1</td>
-    <td>Row 3, Cell 2</td>
-    <td>Row 3, Cell 3</td>
-  </tr>
-</table> -->
+
+</section>

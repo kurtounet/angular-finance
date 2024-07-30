@@ -4,14 +4,13 @@ import { Itransaction } from '../shared/models/transaction.model';
 import { mockTransactions } from '../shared/mocks/transactions.mock';
 import { CommonModule } from '@angular/common';
 import { TransactionsService } from '../shared/services/transactions.service';
-//import { GridJsAngularModule } from 'gridjs-angular';
-import { Grid } from 'gridjs';
 import { Icategory } from '../shared/models/categories.model';
 import { TransactionByCategoryPipe } from '../shared/pipes/transaction-by-category.pipe';
+import { GraphicComponent } from "../graphic/graphic.component";
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [FilterBarComponent, CommonModule, TransactionByCategoryPipe],
+  imports: [FilterBarComponent, CommonModule, TransactionByCategoryPipe, GraphicComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
