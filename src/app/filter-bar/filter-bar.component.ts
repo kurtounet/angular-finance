@@ -11,22 +11,21 @@ import { CommonModule } from '@angular/common';
   styleUrl: './filter-bar.component.css'
 })
 export class FilterBarComponent {
-   @Output() selectedCategory: EventEmitter<number> = new EventEmitter();
+  @Output() selectedCategory: EventEmitter<number> = new EventEmitter();
 
   // VARIABLES
   searchText: string = '';
-  selectedCategoryId!:number;
+  //selectedCategoryId!: number;
   categoriesCollection: Icategory[] = [];
-  categoriesfilterCollection: Icategory[] = [];
+  //categoriesfilterCollection: Icategory[] = [];
   // INJECTIONS DE DEPENDANCES
-  categoriesService= inject(CategoriesService);
+  categoriesService = inject(CategoriesService);
   // METHODS
   ngOnInit(): void {
     this.categoriesCollection = this.categoriesService.getAllCategories();
   }
-  changeCategory(event: any){
-    this.selectedCategoryId = event.target.value;
-    this.selectedCategory.emit(this.selectedCategoryId);    
+  changeCategory(event: any) {
+    this.selectedCategory.emit(event.target.value);
   }
 
 }

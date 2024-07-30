@@ -6,7 +6,7 @@
     <span class="amounTotal">Total: 100€</span>
     <span class="amounTotal">Total: 100€</span>
   </div>
-  <ul class="row w-100" *ngFor="let transaction of transcationsCollection" | transactionByCategory>
+  <ul class="row w-100" *ngFor="let transaction of transactionsfilterCollection">
     <li class="col date">{{transaction.date | date:'dd mm y'}}</li>
     <li class="col">{{transaction.category}}</li>
     <li class="col">{{transaction.title}}</li>

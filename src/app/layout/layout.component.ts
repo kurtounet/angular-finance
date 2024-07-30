@@ -16,29 +16,37 @@ import { TransactionByCategoryPipe } from '../shared/pipes/transaction-by-catego
   styleUrl: './layout.component.css'
 })
 export class LayoutComponent {
-  transcationsCollection: Itransaction[] = []; 
-  transcationService= inject(TransactionsService);
-  transactionsfilterCollection: Itransaction[] = []; 
+  transationsCollection: Itransaction[] = [];
+  transcationService = inject(TransactionsService);
+  transactionsfilterCollection: Itransaction[] = [];
 
   ngOnInit(): void {
-    
-    this.transcationsCollection = this.transcationService.getAllTransactions();
+    this.transationsCollection = this.transcationService.getAllTransactions();
+    this.transactionsfilterCollection = this.transationsCollection;
   }
-  editeTransaction(id: number){}
-  deleteTransaction(id: number){
-    this.transcationsCollection= this.transcationsCollection.filter((transaction) => transaction.id !== id);
+  editeTransaction(id: number) { }
+  deleteTransaction(id: number) {
+    this.transationsCollection = this.transationsCollection.filter((transaction) => transaction.id !== id);
   }
-  addTransaction(transaction: Itransaction){
+  addTransaction(transaction: Itransaction) {
     //{id: 0, date: new Date(), category: "", title: "", amount: 0, type: ""}
-    this.transcationsCollection.push(transaction);
+    this.transationsCollection.push(transaction);
   }
- 
-  transactionSelectedCategory(id: any){
-    this.transactionsfilterCollection = this.transcationsCollection.filter((transaction) => transaction.category === id);
-    
+
+  transactionSelectedCategory(name: any) {
+    if (name === "Toutes les catégories") {
+      this.transactionsfilterCollection = this.transationsCollection;
+
+    } else {
+      this.transactionsfilterCollection = this.transationsCollection.filter((transaction) => transaction.category === name);
+    }
+    console.log(this.transactionsfilterCollection);
+
+
   }
+  //  | transactionByCategory
 }
 
-  
+
 
 
