@@ -1,0 +1,19 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    height: 100vh;
+    width: 100vw;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+}
+
+.type {
+    font-weight: bold;
+    color: brown;
+}

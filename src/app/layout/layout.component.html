@@ -1,1 +1,41 @@
-<p>layout works!</p>
+<section class="container">
+  <app-filter-bar (selectedCategory)="transactionSelectedCategory($event)"></app-filter-bar>
+  <h1>Transaction</h1>
+  <div class="amount">
+    <span class="amounTotal">Total: 100€</span>
+    <span class="amounTotal">Total: 100€</span>
+    <span class="amounTotal">Total: 100€</span>
+  </div>
+  <ul class="row w-100" *ngFor="let transaction of transcationsCollection" | transactionByCategory>
+    <li class="col date">{{transaction.date | date:'dd mm y'}}</li>
+    <li class="col">{{transaction.category}}</li>
+    <li class="col">{{transaction.title}}</li>
+    <li class="col">{{transaction.amount}} € </li>
+    <li class="col type">{{transaction.type | titlecase}}</li>
+    <li class="col type"><button (click)="editeTransaction(transaction.id)"></button></li>
+    <li class="col type"><button (click)="deleteTransaction(transaction.id)"></button></li>
+  </ul>
+</section>
+
+<!-- <table border="1">
+  <tr>
+    <th>Date</th>
+    <th>category</th>
+    <th>Header 3</th>
+  </tr>
+  <tr>
+    <td>Row 1, Cell 1</td>
+    <td>Row 1, Cell 2</td>
+    <td>Row 1, Cell 3</td>
+  </tr>
+  <tr>
+    <td>Row 2, Cell 1</td>
+    <td>Row 2, Cell 2</td>
+    <td>Row 2, Cell 3</td>
+  </tr>
+  <tr>
+    <td>Row 3, Cell 1</td>
+    <td>Row 3, Cell 2</td>
+    <td>Row 3, Cell 3</td>
+  </tr>
+</table> -->

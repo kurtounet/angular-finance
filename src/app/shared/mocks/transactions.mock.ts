@@ -1,4 +1,6 @@
-export const TRANSACTIONS = [
+import { Itransaction } from "../models/transaction.model";
+
+export const mockTransactions: Itransaction[]    = [
     { id: 1, date: new Date(), category: "Salaires", title: "Paie mensuelle", amount: 2500, type: "entree" },
     { id: 2, date: new Date(), category: "Loyer", title: "Loyer mensuel", amount: 800, type: "sortie" },
     { id: 3, date: new Date(), category: "Alimentation", title: "Courses hebdomadaires", amount: 150, type: "sortie" },

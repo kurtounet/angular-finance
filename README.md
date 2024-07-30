@@ -1,3 +1,7 @@
+liberie 
+chartjs
+npm i gridjs
+
 #Consigne
 
 Components:

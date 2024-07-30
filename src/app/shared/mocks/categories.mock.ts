@@ -1,5 +1,7 @@
+import { Icategory } from "../models/categories.model";
+
    
-export const CATEGORIES = [
+export const mockCategories: Icategory[] = [
     { id: 1, name: "Salaires" },
     { id: 2, name: "Loyer" },
     { id: 3, name: "Alimentation" },
