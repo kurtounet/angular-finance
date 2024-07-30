@@ -1,3 +1,29 @@
+#Consigne
+
+Components:
+login -> Formulaire
+dashboard
+
+Pour le budget: 
+date, catégorie, titre, montant, type (entrée ou sortie) 
+
+
+On doit pourvoir créer une ligne, supprimer, modifier et afficher
+
+
+vous devez rajouter des graphiques qui permet de suivre le budget et par categorie 
+
+La page d'accueil est un formumaire de connexion. 
+Une fois connecté le dashboard apparait ( donc redirection) 
+
+
+
+
+
+
+
+
+
 # Budget
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.1.

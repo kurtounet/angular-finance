@@ -1,0 +1,22 @@
+export const TRANSACTIONS = [
+    { id: 1, date: new Date(), category: "Salaires", title: "Paie mensuelle", amount: 2500, type: "entree" },
+    { id: 2, date: new Date(), category: "Loyer", title: "Loyer mensuel", amount: 800, type: "sortie" },
+    { id: 3, date: new Date(), category: "Alimentation", title: "Courses hebdomadaires", amount: 150, type: "sortie" },
+    { id: 4, date: new Date(), category: "Transports", title: "Billet de train", amount: 60, type: "sortie" },
+    { id: 5, date: new Date(), category: "Factures", title: "Facture électricité", amount: 100, type: "sortie" },
+    { id: 6, date: new Date(), category: "Santé", title: "Pharmacie", amount: 30, type: "sortie" },
+    { id: 7, date: new Date(), category: "Assurances", title: "Assurance auto", amount: 200, type: "sortie" },
+    { id: 8, date: new Date(), category: "Loisirs", title: "Abonnement gym", amount: 40, type: "sortie" },
+    { id: 9, date: new Date(), category: "Éducation", title: "Frais scolaires", amount: 500, type: "sortie" },
+    { id: 10, date: new Date(), category: "Impôts", title: "Taxe foncière", amount: 400, type: "sortie" },
+    { id: 11, date: new Date(), category: "Remboursements", title: "Remboursement prêt", amount: 250, type: "sortie" },
+    { id: 12, date: new Date(), category: "Épargne", title: "Dépôt mensuel", amount: 300, type: "entree" },
+    { id: 13, date: new Date(), category: "Investissements", title: "Achat d'actions", amount: 1000, type: "sortie" },
+    { id: 14, date: new Date(), category: "Dons", title: "Don à une ONG", amount: 50, type: "sortie" },
+    { id: 15, date: new Date(), category: "Voyages", title: "Billets d'avion", amount: 1200, type: "sortie" },
+    { id: 16, date: new Date(), category: "Shopping", title: "Achat de vêtements", amount: 300, type: "sortie" },
+    { id: 17, date: new Date(), category: "Beauté", title: "Salon de coiffure", amount: 80, type: "sortie" },
+    { id: 18, date: new Date(), category: "Animaux", title: "Nourriture pour chat", amount: 40, type: "sortie" },
+    { id: 19, date: new Date(), category: "Entretien maison", title: "Réparation de plomberie", amount: 150, type: "sortie" },
+    { id: 20, date: new Date(), category: "Autres", title: "Divers", amount: 100, type: "sortie" }
+]
