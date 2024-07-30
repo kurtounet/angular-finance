@@ -16,19 +16,18 @@
       <th>Montant</th>
       <th>Type</th>
     </tr>
-    @for (transaction of transactionsfilterCollection; track transaction.id) {
-    <tr>
-      <td class="border-1 text-center">{{transaction.date | date:'dd mm y'}}</td>
-      <td class="border-1 text-center">{{transaction.category}}</td>
-      <td class="border-1 text-center">{{transaction.title}}</td>
-      <td class="border-1 text-center">{{transaction.amount}}</td>
-      <td class="border-1 text-center">{{transaction.type}}</td>
+    <tr *ngFor="let transaction of transactionsfilterCollection; trackBy: trackByTransactionId">
+      <td class="border-1 text-center">{{ transaction.date | date: 'dd-MM-yyyy' }}</td>
+      <td class="border-1 text-center">{{ transaction.category }}</td>
+      <td class="border-1 text-center">{{ transaction.title }}</td>
+      <td class="border-1 text-center">{{ transaction.amount }}</td>
+      <td class="border-1 text-center">{{ transaction.type }}</td>
       <td class="border-1 text-center">
-        <button class="btn btn-success m-1" (click)="editeTransaction(transaction.id)">Modifier</button>
+        <button class="btn btn-success m-1" (click)="editTransaction(transaction.id)">Modifier</button>
         <button class="btn btn-danger m-1" (click)="deleteTransaction(transaction.id)">Supprimer</button>
       </td>
     </tr>
-    }
+
   </table>
 
 

@@ -13,7 +13,7 @@ import { ChartData } from 'chart.js';
 export class GraphicComponent {
   @Input() transactions: Itransaction[] = [];
 
-  data: ChartData<'bar'> = {
+  data: ChartData<'pie'> = {
     labels: [],
     datasets: [{
       data: []
@@ -21,6 +21,7 @@ export class GraphicComponent {
   };
 
   ngOnChanges(changes: SimpleChanges) {
+    //this.updateChartData();
     if (changes['transactions']) {
       this.updateChartData();
     }

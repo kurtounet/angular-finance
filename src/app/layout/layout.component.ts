@@ -23,7 +23,7 @@ export class LayoutComponent {
     this.transationsCollection = this.transcationService.getAllTransactions();
     this.transactionsfilterCollection = this.transationsCollection;
   }
-  editeTransaction(id: number) { }
+  editTransaction(id: number) { }
   deleteTransaction(id: number) {
     this.transationsCollection = this.transationsCollection.filter((transaction) => transaction.id !== id);
   }
@@ -42,6 +42,10 @@ export class LayoutComponent {
     console.log(this.transactionsfilterCollection);
 
 
+  }
+
+  trackByTransactionId(index: number, transaction: any): number {
+    return transaction.id; // or any unique property of the transaction
   }
   //  | transactionByCategory
 }
