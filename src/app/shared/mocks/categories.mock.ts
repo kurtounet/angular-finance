@@ -1,25 +1,25 @@
-import { Icategory } from "../models/categories.model";
+import { Icategory } from "../models/categorie.model";
 
 
 export const mockCategories: Icategory[] = [
-  { id: 1, name: "Salaire" },
-  { id: 2, name: "Loyer" },
-  { id: 3, name: "Alimentation" },
-  { id: 4, name: "Transports" },
-  { id: 5, name: "Factures" },
-  { id: 6, name: "Santé" },
-  { id: 7, name: "Assurances" },
-  { id: 8, name: "Loisirs" },
-  { id: 9, name: "Éducation" },
-  { id: 10, name: "Impôts" },
-  { id: 11, name: "Remboursements" },
-  { id: 12, name: "Épargne" },
-  { id: 13, name: "Investissements" },
-  { id: 14, name: "Dons" },
-  { id: 15, name: "Voyages" },
-  { id: 16, name: "Shopping" },
-  { id: 17, name: "Beauté" },
-  { id: 18, name: "Animaux" },
-  { id: 19, name: "Entretien maison" },
-  { id: 20, name: "Autres" }
+  { id: 1, label: "Salaire" },
+  { id: 2, label: "Loyer" },
+  { id: 3, label: "Alimentation" },
+  { id: 4, label: "Transports" },
+  { id: 5, label: "Factures" },
+  { id: 6, label: "Santé" },
+  { id: 7, label: "Assurances" },
+  { id: 8, label: "Loisirs" },
+  { id: 9, label: "Éducation" },
+  { id: 10, label: "Impôts" },
+  { id: 11, label: "Remboursements" },
+  { id: 12, label: "Épargne" },
+  { id: 13, label: "Investissements" },
+  { id: 14, label: "Dons" },
+  { id: 15, label: "Voyages" },
+  { id: 16, label: "Shopping" },
+  { id: 17, label: "Beauté" },
+  { id: 18, label: "Animaux" },
+  { id: 19, label: "Entretien maison" },
+  { id: 20, label: "Autres" }
 ]

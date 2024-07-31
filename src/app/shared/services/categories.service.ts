@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { mockCategories } from '../mocks/categories.mock';
-import { Icategory } from '../models/categories.model';
+import { Icategory } from '../models/categorie.model';
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,23 @@
 <div>
-  <select name="category" id="category" (change)="changeCategory($event)">
-    <option value="Toutes les catégories">Toutes les catégories</option>
-    <option *ngFor="let cat of categoriesCollection" [value]="cat.name">{{cat.name}}</option>
+  <select name="date" id="date" (change)="filterByDate($event)">
+    <option value="Toutes les dates">Toutes les dates</option>
+    <option *ngFor="let date of typeDateFilterCollection" [value]="date.label">{{date.label}}</option>
   </select>
+  <select name="category" id="category" (change)="filterByCategory($event)">
+    <option value="Toutes les catégories">Toutes les catégories</option>
+    <option *ngFor="let cat of categoriesCollection" [value]="cat.label">{{cat.label}}</option>
+  </select>
+  <select name="subCategory" id="subCategory" (change)="filterBySubCategory($event)">
+    <option value="Toutes les sous-catégories">Toutes les sous-catégories</option>
+    <option *ngFor="let subcat of subCategoriesCollection" [value]="subcat.label">{{subcat.label}}</option>
+  </select>
+  <select name="typePayment" id="typePayment" (change)="filterByTypeOperation($event)">
+    <option value="Toutes les types de paiement">Toutes les types de paiement</option>
+    <option *ngFor="let operation of typeOperationCollection" [value]="operation.label">{{operation.label}}
+    </option>
+  </select>
+  <div>
+    <input type="text" name="search" id="search" [(ngModel)]="searchText">
+
+  </div>
 </div>
