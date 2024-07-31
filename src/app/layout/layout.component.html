@@ -1,7 +1,5 @@
 <section class="container d-flex flex-column justify-item-center">
-  <app-filter-bar 
-  (selectedCategory)="transactionSelectedCategory($event)"
-  ></app-filter-bar>
+  <app-filter-bar (selectedCategory)="transactionSelectedCategory($event)"></app-filter-bar>
   <h1>Transaction</h1>
   <div class="amount">
     <span class="amounTotal">Total: 100€</span>
@@ -14,6 +12,7 @@
     <tr>
       <th>Date</th>
       <th>catégorie</th>
+      <th>sous catégorie</th>
       <th>libellé</th>
       <th>Montant</th>
       <th>Type</th>
@@ -21,6 +20,7 @@
     <tr *ngFor="let transaction of transactionsfilterCollection; trackBy: trackByTransactionId">
       <td class="border-1 text-center">{{ transaction.date | date: 'dd-MM-yyyy' }}</td>
       <td class="border-1 text-center">{{ transaction.category }}</td>
+      <td class="border-1 text-center">{{ transaction.subCategory }}</td>
       <td class="border-1 text-center">{{ transaction.title }}</td>
       <td class="border-1 text-center">{{ transaction.amount }}</td>
       <td class="border-1 text-center">{{ transaction.type }}</td>

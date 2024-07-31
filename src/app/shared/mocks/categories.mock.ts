@@ -22,4 +22,5 @@ export const mockCategories: Icategory[] = [
   { id: 18, label: "Animaux" },
   { id: 19, label: "Entretien maison" },
   { id: 20, label: "Autres" }
-]
+];
+
