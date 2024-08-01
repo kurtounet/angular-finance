@@ -33,6 +33,7 @@ export class FormTransactionComponent {
   // VARIABLES
   // searchText: string = '';
   today: Date = new Date();
+  isAdd: boolean = true;
   typeDateFilterCollection: IdateLabel[] = [];
   typeOperationCollection: ItypeOperation[] = []; 
   categoriesCollection: Icategory[] = [];
@@ -44,7 +45,7 @@ export class FormTransactionComponent {
   subCategoriesService = inject(SubCategoryService);
   typeOperationService = inject(TypePaymentService);  
    transcationService = inject(TransactionsService);
-   newtransaction: Itransaction= {id: 0, date: new Date(), category: "", subCategory: "", title: "", amount: 0, type: "", typeOperation: ""};  
+   transaction: Itransaction= {id: 0, date: new Date(), category: "", subCategory: "", title: "", amount: 0, type: "", typeOperation: ""};  
   // METHODS
   ngOnInit(): void {
     this.typeDateFilterCollection = this.typeDateFilterService.getAllTypeDateFilter();
@@ -54,36 +55,36 @@ export class FormTransactionComponent {
  }
   // FILTERS  
   filterByDate(event: any) {
-    this.newtransaction.date = event.target.value;
+    this.transaction.date = event.target.value;
      
   }
   filterByCategory(event: any) {
-    this.newtransaction.category = event.target.value;
+    this.transaction.category = event.target.value;
     
   }
   filterBySubCategory(event: any) {
-    this.newtransaction.subCategory = event.target.value;
+    this.transaction.subCategory = event.target.value;
   }
   filterByTypeOperation(event: any) {
-    this.newtransaction.typeOperation = event.target.value; 
+    this.transaction.typeOperation = event.target.value; 
   }
   filterByType(event: any) {
-    this.newtransaction.type = event.target.value; 
+    this.transaction.type = event.target.value; 
   }
 // TO SERVICE 
   addTransaction() {
-    this.newtransaction.id = this.transcationService.getAllTransactions().length + 1;
-    this.newtransaction.amount = this.amount;
-    this.newtransaction.title = this.libelleTransaction;
-    this.transcationService.addTransaction(this.newtransaction);
-    this.newtransaction = {id: 0, date: new Date(), category: "", subCategory: "", title: "", amount: 0, type: "", typeOperation: ""};
-    this.formVisible.emit(false);
+    this.transaction.id = this.transcationService.getAllTransactions().length + 1;
+    this.transaction.amount = this.amount;
+    this.transaction.title = this.libelleTransaction;
+    this.transcationService.addTransaction(this.transaction);
+    this.transaction = {id: 0, date: new Date(), category: "", subCategory: "", title: "", amount: 0, type: "", typeOperation: ""};
+    this.formVisible.emit(true);
   }
   removeTransaction(id: number) {
     this.transcationService.removeTransaction(id);    
   }
-  updateTransaction(id: number, transaction: Itransaction) {
-    this.updateTransaction(id, transaction);
+  updateTransaction(transaction: Itransaction) {
+    this.transcationService.updateTransaction(transaction);
   }
 
 }

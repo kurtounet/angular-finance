@@ -25,7 +25,7 @@ import { FormTransactionComponent } from '../form-transaction/form-transaction.c
 })
 export class LayoutComponent implements OnChanges,OnInit {
 
-  formVisible:boolean = false;
+  formVisible:boolean = true;
   transationsCollection: Itransaction[] = [];
   transcationService = inject(TransactionsService);
   transactionsfilterCollection: Itransaction[] = [];
@@ -36,9 +36,9 @@ export class LayoutComponent implements OnChanges,OnInit {
   }
   ngOnChanges(changes: SimpleChanges):void {
    
-    if (changes['transactions']) {
-      this.transactionsfilterCollection = this.transationsCollection;
-    }
+    // if (changes['transactions']) {
+    //   this.transactionsfilterCollection = this.transationsCollection;
+    // }
   }
   openForm() {
     this.formVisible = true;
@@ -46,9 +46,14 @@ export class LayoutComponent implements OnChanges,OnInit {
   closeForm() {
     this.formVisible = false;
   }
-  editTransaction(id: number) { }
+  editTransaction(transaction: Itransaction) {
+    this.openForm();
+    
+    this.transcationService.updateTransaction(transaction);
+   }
   
   deleteTransaction(id: number) {
+    console.log(id);
     this.transactionsfilterCollection = this.transcationService.removeTransaction(id);  
     console.log(this.transactionsfilterCollection); 
   }

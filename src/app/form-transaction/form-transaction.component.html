@@ -1,58 +1,71 @@
-<!-- <form>
-  <div class="row">
-    <div class="flex-column">
-      <label for="date">Date</label>
-      <input type="date" name="date" id="date" value="{{ today }}">
+<form>
+  <div class="col m-2">
+    <div class="col-md-6">
+      <label for="date" class="form-label">Date</label>
+      <input type="date" name="date" id="date" class="form-control" [(ngModel)]="transaction.date">
     </div>
-    <div class="flex-column">
-      <label for="category">catégorie</label>
-      <select name="category" id="category" (change)="filterByCategory($event)">
+    <div class="col-md-6">
+      <label for="category" class="form-label">Catégorie</label>
+      <select name="category" id="category" class="form-select" [(ngModel)]="transaction.category"
+        (change)="filterByCategory($event)">
         <option value="Toutes les catégories">Toutes les catégories</option>
         <option *ngFor="let cat of categoriesCollection" [value]="cat.label">{{cat.label}}</option>
       </select>
     </div>
   </div>
-  <div class="row">
-    <div class="flex-column">
-      <label for="subCategory">sous-carégorie</label>
-      <select name="subCategory" id="subCategory" (change)="filterBySubCategory($event)">
+
+  <div class="col m-2">
+    <div class="col-md-6">
+      <label for="subCategory" class="form-label">Sous-catégorie</label>
+      <select name="subCategory" id="subCategory" class="form-select" [(ngModel)]="transaction.subCategory"
+        (change)="filterBySubCategory($event)">
         <option value="Toutes les sous-catégories">Toutes les sous-catégories</option>
         <option *ngFor="let subcat of subCategoriesCollection" [value]="subcat.label">{{subcat.label}}</option>
       </select>
     </div>
-
-    <div class="flex-column">
-      <label for="typePayment">Type d'opération</label>
-      <select name="typePayment" id="typePayment" (change)="filterByTypeOperation($event)">
+    <div class="col-md-6">
+      <label for="typePayment" class="form-label">Opération</label>
+      <select name="typePayment" id="typePayment" class="form-select" [(ngModel)]="transaction.typeOperation"
+        (change)="filterByTypeOperation($event)">
         <option value="Toutes les types de paiement">Toutes les types de paiement</option>
-        <option *ngFor="let operation of typeOperationCollection" [value]="operation.label">{{operation.label}}
-        </option>
+        <option *ngFor="let operation of typeOperationCollection" [value]="operation.label">{{operation.label}}</option>
       </select>
     </div>
   </div>
-  <div class="row">
-    <div class="flex-column">
-      <label for="type">type d'opération</label>
-      <select name=" type" id="type" (change)="filterByType($event)">
+
+  <div class="col m-2">
+    <div class="col-md-6">
+      <label for="type" class="form-label">Type</label>
+      <select name="type" id="type" class="form-select" [(ngModel)]="transaction.type" (change)="filterByType($event)">
         <option value="Entrée">Entrée</option>
         <option value="Sortie">Sortie</option>
       </select>
     </div>
-    <div class="flex-column">
-      <label for="libelle">Montant de la transaction</label>
-      <input type="text" name="libelle" id="libelle" [(ngModel)]="libelleTransaction">
-    </div>
-
-    <div class="flex-column">
-      <label for="category">Montant de la transaction</label>
-      <input type="number" name="amount" id="amount" [(ngModel)]="amount">
+    <div class="col-md-6">
+      <label for="libelle" class="form-label">Libellé</label>
+      <input type="text" name="libelle" id="libelle" class="form-control" [(ngModel)]="transaction.title">
     </div>
   </div>
-  <button (click)="addTransaction()" class="btn- btn-primary">Enregistrer</button>
 
-</form> -->
+  <div class="col">
+    <div class="col-md-12">
+      <label for="amount" class="form-label">Montant</label>
+      <input type="number" name="amount" id="amount" class="form-control" [(ngModel)]="transaction.amount">
+    </div>
+    @if(isAdd){
+    <div class="col-md-12">
+      <button type="button" (click)="addTransaction()" class="btn btn-primary w-100">Enregistrer</button>
+    </div>
+    <div class="col-md-12">
+      <button type="button" (click)="updateTransaction(transaction)" class="btn btn-primary w-100">Mettre à
+        jour</button>
+    </div>
+    }
+  </div>
+</form>
 
-<form>
+
+<!-- <form>
   <div class="col m-2">
     <div class="col-md-6">
       <label for="date" class="form-label">Date</label>
@@ -94,7 +107,7 @@
     </div>
     <div class="col-md-6">
       <label for="libelle" class="form-label">Libellé</label>
-      <input type="text" name="libelle" id="libelle" class="form-control" [(ngModel)]="libelleTransaction">
+      <input type="text" name="libelle" id="libelle" class="form-control" [(ngModel)]="libelletransaction">
     </div>
 
   </div>
@@ -105,7 +118,7 @@
       <input type="number" name="amount" id="amount" class="form-control" [(ngModel)]="amount">
     </div>
     <div class="col-md-12">
-      <button type="button" (click)="addTransaction()" class="btn btn-primary w-100">Enregistrer</button>
+      <button type="button" (click)="addtransaction()" class="btn btn-primary w-100">Enregistrer</button>
     </div>
   </div>
-</form>
+</form> -->

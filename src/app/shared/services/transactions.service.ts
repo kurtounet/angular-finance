@@ -18,9 +18,10 @@ export class TransactionsService {
     return this.transcationsCollection.push(transaction);
   }
   removeTransaction(id: number): any {     
-    this.transcationsCollection = this.transcationsCollection.filter((transaction) => transaction.id !== id);
+    return this.transcationsCollection = this.transcationsCollection.filter((transaction) => transaction.id !== id);
   }
-  updateTransaction(id: number, transaction: Itransaction) {
-   return this.transcationsCollection[id] = transaction;
+  updateTransaction(transaction: Itransaction) {
+    this.transcationsCollection[this.transcationsCollection.findIndex((t) => t.id === transaction.id)] = transaction;  
+   return this.transcationsCollection ;
   }
 }
