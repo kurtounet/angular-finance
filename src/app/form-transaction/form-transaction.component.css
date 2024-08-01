@@ -1,0 +1,15 @@
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+}
+
+input,
+label,
+select {
+    width: 100%;
+    margin-bottom: 10px;
+}

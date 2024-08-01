@@ -1,7 +1,4 @@
 import { IdateLabel } from "../models/dateLabel.model";
-
-
-
 export const mockDateLabel: IdateLabel[] = [
   { id: 1, label: "Toutes les dates" },
   { id: 2, label: "Les 7 derniers jours" },

@@ -34,9 +34,9 @@ export class GraphicComponent implements OnChanges {
 
   updateChartData() {
     this.data.labels = this.transactions.map(transaction => transaction.title);
-    console.log(this.data.labels);
+    //console.log(this.data.labels);
     this.data.datasets[0].data = this.transactions.map(transaction => transaction.amount);
-    console.log(this.data.datasets[0].data);
+    //console.log(this.data.datasets[0].data);
   }
 
 }

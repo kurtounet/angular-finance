@@ -10,12 +10,7 @@ import { TypePaymentService } from '../shared/services/type-payment.service';
 import { SubCategoryService } from '../shared/services/sub-category.service';
 import { TypeDateFilterService } from '../shared/services/type-date-filter.service';
 import { ItypeOperation } from '../shared/models/typeOperation.model';
-export interface IitemFilters {
-  date:IdateLabel;
-  category:Icategory;
-  subCategory:IsubCategory;
-  sypeOperation:ItypeOperation;
-}
+
 @Component({
   selector: 'app-filter-bar',
   standalone: true,

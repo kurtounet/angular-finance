@@ -11,6 +11,48 @@
   </div>
   <!-- <app-add-transaction (addTransaction)="addTransaction($event)"></app-add-transaction> -->
   <app-graphic [transactions]="transactionsfilterCollection"></app-graphic>
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Nouvelle transaction
+  </button> -->
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- date: Date;
+          category: string;
+          subCategory: string;
+          title: string;
+          amount: number;
+          type: string;
+          typeOperation: string; -->
+          <app-form-transaction (filterCategory)="transactionSelectedCategory($event)"
+            (filterDate)="transactionSelectedDateFilterLabel($event)"
+            (filtesSubCategory)="transactionSelectedSubCategory($event)"
+            (filterTypeOperation)="transactionSelectedTypeOperation($event)">
+          </app-form-transaction>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button type="button" (click)="openForm()" class="btn btn-primary">Nouvelle transaction</button>
+  @if(formVisible){
+  <app-form-transaction (filterCategory)="transactionSelectedCategory($event)"
+    (filterDate)="transactionSelectedDateFilterLabel($event)"
+    (filtesSubCategory)="transactionSelectedSubCategory($event)"
+    (filterTypeOperation)="transactionSelectedTypeOperation($event)" (formVisible)="closeForm()">
+  </app-form-transaction>
+  }
   <table class="w-100">
     <tr>
       <th>Date</th>

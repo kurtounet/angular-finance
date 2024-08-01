@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FilterBarComponent } from '../filter-bar/filter-bar.component';
 import { Itransaction } from '../shared/models/transaction.model';
 import { mockTransactions } from '../shared/mocks/transactions.mock';
@@ -7,14 +7,25 @@ import { TransactionsService } from '../shared/services/transactions.service';
 import { Icategory } from '../shared/models/categorie.model';
 import { TransactionByCategoryPipe } from '../shared/pipes/transaction-by-category.pipe';
 import { GraphicComponent } from "../graphic/graphic.component";
+import { FormsModule, NgControl } from '@angular/forms';
+import { FormTransactionComponent } from '../form-transaction/form-transaction.component';
 @Component({
   selector: 'app-layout',
   standalone: true,
-  imports: [FilterBarComponent, CommonModule, TransactionByCategoryPipe, GraphicComponent],
+  imports: [
+    FilterBarComponent, 
+    CommonModule, 
+    TransactionByCategoryPipe, 
+    GraphicComponent,
+    FormsModule,
+    FormTransactionComponent
+  ],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css'
 })
-export class LayoutComponent {
+export class LayoutComponent implements OnChanges,OnInit {
+
+  formVisible:boolean = false;
   transationsCollection: Itransaction[] = [];
   transcationService = inject(TransactionsService);
   transactionsfilterCollection: Itransaction[] = [];
@@ -23,19 +34,32 @@ export class LayoutComponent {
     this.transationsCollection = this.transcationService.getAllTransactions();
     this.transactionsfilterCollection = this.transationsCollection;
   }
+  ngOnChanges(changes: SimpleChanges):void {
+   
+    if (changes['transactions']) {
+      this.transactionsfilterCollection = this.transationsCollection;
+    }
+  }
+  openForm() {
+    this.formVisible = true;
+  }
+  closeForm() {
+    this.formVisible = false;
+  }
   editTransaction(id: number) { }
+  
   deleteTransaction(id: number) {
-    this.transationsCollection = this.transationsCollection.filter((transaction) => transaction.id !== id);
+    this.transactionsfilterCollection = this.transcationService.removeTransaction(id);  
+    console.log(this.transactionsfilterCollection); 
   }
-  addTransaction(transaction: Itransaction) {
-    //{id: 0, date: new Date(), category: "", title: "", amount: 0, type: ""}
-    this.transationsCollection.push(transaction);
-  }
+  // addTransaction(transaction: Itransaction) {
+  //   //{id: 0, date: new Date(), category: "", title: "", amount: 0, type: ""}
+  //   this.transationsCollection.push(transaction);
+  // }
 
   transactionSelectedCategory(name: any) {
     if (name === "Toutes les catégories") {
       this.transactionsfilterCollection = this.transationsCollection;
-
     } else {
       this.transactionsfilterCollection = this.transationsCollection.filter((transaction) => transaction.category === name);
     }
@@ -48,7 +72,6 @@ export class LayoutComponent {
       this.transactionsfilterCollection = this.transationsCollection.filter((transaction) => transaction.date === name);
     }
   }
-
   transactionSelectedSubCategory(name: any) {
     if (name === "Toutes les sous catégories") {
       this.transactionsfilterCollection = this.transationsCollection;
@@ -65,7 +88,9 @@ export class LayoutComponent {
     }
   }
   
-
+  onSave() {
+    
+  }
   trackByTransactionId(index: number, transaction: any): number {
     return transaction.id; // or any unique property of the transaction
   }
