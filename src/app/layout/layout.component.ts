@@ -26,12 +26,14 @@ import { FormTransactionComponent } from '../form-transaction/form-transaction.c
 export class LayoutComponent implements OnChanges,OnInit {
 
   formVisible:boolean = true;
+  sumTotal:number = 0;
   transationsCollection: Itransaction[] = [];
   transcationService = inject(TransactionsService);
   transactionsfilterCollection: Itransaction[] = [];
 
   ngOnInit(): void {
     this.transationsCollection = this.transcationService.getAllTransactions();
+    this.sumTotal = this.transcationService.getSumTotal();
     this.transactionsfilterCollection = this.transationsCollection;
   }
   ngOnChanges(changes: SimpleChanges):void {
@@ -48,7 +50,7 @@ export class LayoutComponent implements OnChanges,OnInit {
   }
   editTransaction(transaction: Itransaction) {
     this.openForm();
-    
+
     this.transcationService.updateTransaction(transaction);
    }
   

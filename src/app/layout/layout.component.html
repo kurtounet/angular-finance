@@ -5,9 +5,8 @@
     (filterTypeOperation)="transactionSelectedTypeOperation($event)"></app-filter-bar>
   <h1>Transaction</h1>
   <div class="amount">
-    <span class="amounTotal">Total: 100€</span>
-    <span class="amounTotal">Total: 100€</span>
-    <span class="amounTotal">Total: 100€</span>
+    <span class="amounTotal">Total: {{sumTotal}} €</span>
+
   </div>
   <!-- <app-add-transaction (addTransaction)="addTransaction($event)"></app-add-transaction> -->
   <!--  <app-graphic [transactions]="transactionsfilterCollection"></app-graphic> -->
@@ -42,7 +41,7 @@
       <td class="border-1 text-center">{{ transaction.amount }}</td>
       <td class="border-1 text-center">{{ transaction.type }}</td>
       <td class="border-1 text-center">
-        <button class="btn btn-success m-1" (click)="editTransaction(transaction.id)">Modifier</button>
+        <button class="btn btn-success m-1" (click)="editTransaction(transaction)">Modifier</button>
         <button class="btn btn-danger m-1" (click)="deleteTransaction(transaction.id)">Supprimer</button>
       </td>
     </tr>

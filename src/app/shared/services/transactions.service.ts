@@ -24,4 +24,8 @@ export class TransactionsService {
     this.transcationsCollection[this.transcationsCollection.findIndex((t) => t.id === transaction.id)] = transaction;  
    return this.transcationsCollection ;
   }
+
+  getSumTotal(){
+    return this.transcationsCollection.reduce((total, transaction) => total + transaction.amount, 0);
+  }
 }
