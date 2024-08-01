@@ -6,4 +6,5 @@ export interface Itransaction {
   title: string;
   amount: number;
   type: string;
+  typeOperation: string;
 }

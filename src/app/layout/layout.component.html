@@ -1,5 +1,8 @@
 <section class="container d-flex flex-column justify-item-center">
-  <app-filter-bar (selectedCategory)="transactionSelectedCategory($event)"></app-filter-bar>
+  <app-filter-bar (filterCategory)="transactionSelectedCategory($event)"
+    (filterDate)="transactionSelectedDateFilterLabel($event)"
+    (filtesSubCategory)="transactionSelectedSubCategory($event)"
+    (filterTypeOperation)="transactionSelectedTypeOperation($event)"></app-filter-bar>
   <h1>Transaction</h1>
   <div class="amount">
     <span class="amounTotal">Total: 100€</span>

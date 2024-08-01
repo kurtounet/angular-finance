@@ -61,7 +61,7 @@ export class LayoutComponent {
     if (name === "Toutes les operations") {
       this.transactionsfilterCollection = this.transationsCollection;
     } else {
-      this.transactionsfilterCollection = this.transationsCollection.filter((transaction) => transaction.type === name);
+      this.transactionsfilterCollection = this.transationsCollection.filter((transaction) => transaction.typeOperation === name);
     }
   }
   
