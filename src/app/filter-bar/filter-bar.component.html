@@ -1,4 +1,4 @@
-<div>
+<section>
   <select name="date" id="date" (change)="filterByDate($event)">
     <option value="Toutes les dates">Toutes les dates</option>
     <option *ngFor="let date of typeDateFilterCollection" [value]="date.label">{{date.label}}</option>
@@ -19,4 +19,4 @@
   <div>
     <input type="text" name="search" id="search" [(ngModel)]="searchText">
   </div>
-</div>
+</section>

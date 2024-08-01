@@ -1,19 +1,19 @@
-section {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    height: 100vh;
-    width: 100vw;
+.container-layout {
+  background-color: cornsilk;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  margin: 0px 0px;
 }
 
 ul {
-    display: flex;
-    justify-content: center;
-    list-style-type: none;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
 }
 
 .type {
-    font-weight: bold;
-    color: brown;
+  font-weight: bold;
+  color: brown;
 }
